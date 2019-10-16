@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MP7WT9P');</script>
+    <!-- End Google Tag Manager -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#ver').click(function(){
+                var pathname = window.location.pathname;
+                //alert(pathname);
+                alert(window.location);
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        var Productos = ({
+            'name': 'producto 1',
+            'id': '453521',
+            'price': 100,
+            'brand': 'esika',
+            'category': 'labial',
+            'variant': 'rojo',
+            'position': 1
+        },
+        {
+            'name': 'producto 2',
+            'id': '3901294',
+            'price': 150,
+            'brand': 'Lbel',
+            'category': 'fragancias',
+            'variant': 'dulce',
+            'position': 2
+        },
+        {
+            'name': 'producto 3',
+            'id': '215123',
+            'price': 25,
+            'brand': 'Esika',
+            'category': 'cuidado personal',
+            'variant': 'facial',
+            'position': 3
+        },
+        {
+            'name': 'producto 4',
+            'id': '1623413',
+            'price': 561,
+            'brand': 'cyzone',
+            'category': 'pack fragancia',
+            'variant': '(not available)',
+            'position': 4
+        });
+        
+            
+    </script>
+    <meta charset="utf-8">
+    <title>NEO Consulting News</title>
+<script type="text/javascript">
+
+        var fieldList;
+        var palanca;
+        var buscador;
+        var lista_anterior;
+        var ubicacion;
+
+$(document).ready(function() {
+        var fieldList;
+        var palanca1;
+            var palanca2;
+            var palanca3;
+            var palanca4;
+            var cuentafunciones=0;
+        $('.setDP').click(function() {
+            fieldList = $('.list').val();
+            palanca1 = $('.palanca1').val();
+            palanca2 = $('.palanca2').val();
+            palanca3 = $('.palanca3').val();
+            palanca4 = $('.palanca4').val();
+            console.log(fieldList + "--" + palanca1 + "--" + palanca2 + "--" + palanca3+ "--" + palanca4);
+            console.log("*************************************");
+        });
+        
+       
+ 
+          
+    
+    
+    
+    $('.homeImpre').click(function() {
+        let lista = fieldList;
+        if($(this).attr("data-ubi")=="Carrusel"){
+            var list_anterior = lista;
+            lista = $('.listCarrucel').val();
+        }
+        dataLayer.push({
+            'event': 'productImpression',
+            'ecommerce': {
+                'currencyCode': 'PEN',
+                'impressions': {
+                    'products': [{
+                        'name': 'producto 1',
+                        'id': '453521',
+                        'price': 100,
+                        'brand': 'esika',
+                        'category': 'labial',
+                        'variant': 'rojo',
+                        'position': 1,
+                        'list': lista,
+                        'dimension1': palanca1, // DP de Palanca
+                        'dimension3': list_anterior // Lista Anterior
+                    },
+                    {
+                        'name': 'producto 2',
+                        'id': '3901294',
+                        'price': 150,
+                        'brand': 'Lbel',
+                        'category': 'fragancias',
+                        'variant': 'dulce',
+                        'position': 2,
+                        'list': lista,
+                        'dimension1': palanca2, // DP de Palanca
+                        'dimension3': list_anterior // Lista Anterior
+                    },
+                    {
+                        'name': 'producto 3',
+                        'id': '215123',
+                        'price': 25,
+                        'brand': 'Esika',
+                        'category': 'cuidado personal',
+                        'variant': 'facial',
+                        'position': 3,
+                        'list': lista,
+                        'dimension1': palanca3, // DP de Palanca
+                        'dimension3': list_anterior // Lista Anterior
+                    },
+                    {
+                        'name': 'producto 4',
+                        'id': '1623413',
+                        'price': 561,
+                        'brand': 'cyzone',
+                        'category': 'pack fragancia',
+                        'variant': '(not available)',
+                        'position': 4,
+                        'list': lista,
+                        'dimension1': palanca4, // DP de Palanca
+                        'dimension3': list_anterior // Lista Anterior
+                    }]
+                }
+            }
+        });
+        console.log("impression " + lista);
+        console.log("impression " + palanca1 + " - " + palanca2 + " - " + palanca3 + " - " + palanca4);
+        console.log("dimension3 " + list_anterior);
+        console.log("*************************************");
+    });
+    //addToCart
+    $('.homeadd').click(function(event){
+        let lista = fieldList;
+        if($(this).attr("data-ubi")=="Carrusel"){
+            var list_anterior = lista;
+            lista = $('.listCarrucel').val();
+        }
+        var num = parseInt($(this).attr("data-num"));
+        ubicacion = $(this).attr("data-ubi");
+        console.log(num);
+        switch (num) {
+            case 1:
+                palanca = palanca1;
+                break;
+            case 2:
+                palanca = palanca2;
+                break;
+            case 3:
+                palanca = palanca3;
+                break;
+            case 4:
+                palanca = palanca4;
+                break;
+        }
+        console.log(palanca);
+        dataLayer.push({
+            'event': 'addToCart',
+            'ecommerce': {
+                'currencyCode': 'PEN',
+                'add': {
+                    'actionField': {'list': lista},
+                    'products': [{
+                    'name': 'producto '+ num,
+                    'price': 200,
+                    'brand': 'Esika',
+                    'id': '1231412',
+                    'category': 'labial',
+                    'variant': 'rojo}',
+                    'quantity': 1,
+                    'dimension1': palanca, // DP de Palanca
+                    'dimension2': ubicacion, // DP de seccion web
+                    'dimension3': list_anterior // Lista Anterior
+                    }]
+                }
+            }
+        });
+        console.log("addToCart " +lista);
+        console.log("dimension1 " +palanca);
+        console.log("dimension2 " +ubicacion);
+        console.log("dimension3 " +list_anterior);
+        console.log("*************************************");
+    });
+    //ProductClick
+    $('.homeclick').click(function(event){
+        let lista = fieldList;
+        if($(this).attr("data-ubi")=="Carrusel"){
+            var list_anterior = lista;
+            lista = $('.listCarrucel').val();
+        }
+        var num = parseInt($(this).attr("data-num"));
+        ubicacion = $(this).attr("data-ubi");
+        console.log(num);
+        switch (num) {
+            case 1:
+                palanca = palanca1;
+                break;
+            case 2:
+                palanca = palanca2;
+                break;
+            case 3:
+                palanca = palanca3;
+                break;
+            case 4:
+                palanca = palanca4;
+                break;
+        }
+        dataLayer.push({
+            'event': 'productClick',
+            'ecommerce': {
+            'currencyCode': 'PEN',
+                'click': {
+                    'actionField': {'list': lista},
+                    'products': [{
+                        'name': 'producto '+ num,
+                        'id': '1231412',
+                        'price': 200,
+                        'brand': 'Esika',
+                        'category': 'labial',
+                        'variant': 'rojo',
+                        'position': num,
+                        'dimension1': palanca, // DP de Palanca
+                        'dimension2': ubicacion, // DP de seccion web
+                        'dimension3': list_anterior // Lista Anterior
+                        }]
+                }
+            }
+        });
+        console.log("productClick "+ lista);
+        console.log("dimension1 "+ palanca);
+        console.log("dimension2 "+ ubicacion);
+        console.log("dimension3 " +list_anterior);
+        console.log("*************************************");
+    });
+
+    $('.detail').click(function(event){
+        let lista = fieldList;
+        var num = parseInt($(this).attr("data-num"));
+        ubicacion = $(this).attr("data-ubi");
+        console.log(num);
+        switch (num) {
+            case 1:
+                palanca = palanca1;
+                break;
+            case 2:
+                palanca = palanca2;
+                break;
+            case 3:
+                palanca = palanca3;
+                break;
+            case 4:
+                palanca = palanca4;
+                break;
+        }
+        dataLayer.push({
+        'event': 'productDetails',
+            'ecommerce': {
+               'detail': {
+                 'actionField': {'list': lista},    
+                 'products': [{
+                   'name': 'producto '+ num,        
+                   'id': '12345',
+                   'price': '15.25',
+                   'brand': 'Google',
+                   'category': 'Apparel',
+                   'variant': 'Gray',
+                   'dimension1': palanca, // DP de Palanca
+                   'dimension2': 'Ficha' // DP de seccion web
+                  }]
+                }
+            }
+        });
+        console.log("productDetails "+ lista);  
+        console.log("dimension1 "+ palanca);
+        console.log("dimension2 "+ "Ficha");
+        console.log("*************************************");   
+    });
+
+    //Prueba con corchete
+    dataLayer.push({             
+        'event': 'promotionClick', 
+        'ecommerce': {                                
+            'promoClick': {                              
+                'promotions': [{
+                'id': '123Corchete',
+                'name': 'Con Corchete v2',
+                'position': 'promo 1',
+                'creative': 'www.Google.com'
+                }]
+            }
+        }
+    });
+
+    dataLayer.push({             
+        'event': 'promotionImpression', 
+        'ecommerce': {                                
+            'promoView': {                              
+                'promotions': [{
+                'id': '123Corchete',
+                'name': 'Con Corchete v2',
+                'position': 'promo 1',
+                'creative': 'www.Google.com'
+                }]
+            }
+        }
+    });
+
+     $.when(dataLayer.push()).then(function(){
+            cuentafunciones++;
+            alert("data" + cuentafunciones);
+        });
+
+
+}); 
+</script>    
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MP7WT9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+<a href="#" id="ver">ver url</a>
+    <div align="center">
+        <h1 >Home</h1>
+        
+               <h3>Listas y DP</h3>
+                <p>Nombre de lista: <input type="text" class="list" ></p>
+                <p>Nombre de lista Carrucel: <input type="text" class="listCarrucel" ></p>
+                <!--<p>Nombre de Palanca: <input type="text" class="palanca" ></p> 
+                <p>Nombre de buscador: <input type="text" class="buscador" ></p> 
+                <p>Nombre de ubicacion: <input type="text" class="ubicacion" ></p> 
+                <p>Nombre de lista anterior: <input type="text" class="backList" ></p> -->
+                 
+
+        <table>
+            <!--<tr>
+                <th>
+                    <p>Nombre de Lista1: <input type="text" class="palanca1" ></p>
+                </th>
+                <th>
+                    <p>Nombre de Lista2: <input type="text" class="palanca2" ></p>
+                </th> 
+                <th>
+                    <p>Nombre de Lista3: <input type="text" class="palanca3" ></p>
+                </th>
+                <th>
+                    <p>Nombre de Lista4: <input type="text" class="palanca4" ></p>
+                </th>
+            </tr> -->
+            <tr>
+                <th>
+                    <p>Nombre de Palanca1: </p><input type="text" class="palanca1" >
+                </th>
+                <th>
+                    <p>Nombre de Palanca2: </p><input type="text" class="palanca2" >
+                </th> 
+                <th>
+                    <p>Nombre de Palanca3: </p><input type="text" class="palanca3" >
+                </th>
+                <th>
+                    <p>Nombre de Palanca4: </p><input type="text" class="palanca4" >
+                </th>
+            </tr>
+            <tr>
+                <th colspan="4">
+                    <input type="button" value="Set DP ..." class="setDP">
+                </th>
+            </tr>
+            <tr>
+                <th colspan="4">
+                    <input type="button" value="Impression"  class="homeImpre">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input type="button" value="Producto 1" data-num="1" data-ubi="null" class="homeclick">
+                </th>
+                <th>
+                    <input type="button" value="Producto 2" data-num="2" data-ubi="null" class="homeclick">
+                </th> 
+                <th>
+                    <input type="button" value="Producto 3" data-num="3" data-ubi="null" class="homeclick">
+                </th>
+                <th>
+                    <input type="button" value="Producto 4" data-num="4" data-ubi="null" class="homeclick">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input type="button" value="AddToCart Producto #1" data-num="1" data-ubi="null" class="homeadd">
+                </th>
+                <th>
+                    <input type="button" value="AddToCart Producto #2" data-num="2" data-ubi="null" class="homeadd">
+                </th> 
+                <th>
+                    <input type="button" value="AddToCart Producto #3" data-num="3" data-ubi="null" class="homeadd">
+                </th>
+                <th>
+                    <input type="button" value="AddToCart Producto #4" data-num="4" data-ubi="null" class="homeadd">
+                </th>
+            </tr>
+        </table>
+            <h1>Ficha de producto</h1>
+        <table>
+            <tr>
+                <th>
+                    <input type="button" value="Detalle 1" data-num="1"  class="detail">
+                </th>
+                <th>
+                    <input type="button" value="Detalle 2" data-num="2"  class="detail">
+                </th> 
+                <th>
+                    <input type="button" value="Detalle 3" data-num="3"  class="detail">
+                </th>
+                <th>
+                    <input type="button" value="Detalle 4" data-num="4"  class="detail">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input type="button" value="AddToCart Producto #1" data-num="1" data-ubi="Carrusel" class="homeadd">
+                </th>
+                <th>
+                    <input type="button" value="AddToCart Producto #2" data-num="2" data-ubi="Carrusel" class="homeadd">
+                </th> 
+                <th>
+                    <input type="button" value="AddToCart Producto #3" data-num="3" data-ubi="Carrusel" class="homeadd">
+                </th>
+                <th>
+                    <input type="button" value="AddToCart Producto #4" data-num="4" data-ubi="Carrusel" class="homeadd">
+                </th>
+            </tr>
+        </table>        
+        <h1>Carrusel</h1>    
+        <input type="button" value="Impression" data-ubi="Carrusel" data-ubi="Carrusel" class="homeImpre">
+                
+        <table>
+            <tr>
+                <th>
+                    <input type="button" value="Producto 1" data-num="1" data-ubi="Carrusel" class="homeclick">
+                </th>
+                <th>
+                    <input type="button" value="Producto 2" data-num="2" data-ubi="Carrusel" class="homeclick">
+                </th> 
+                <th>
+                    <input type="button" value="Producto 3" data-num="3" data-ubi="Carrusel" class="homeclick">
+                </th>
+                <th>
+                    <input type="button" value="Producto 4" data-num="4" data-ubi="Carrusel" class="homeclick">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input type="button" value="AddToCart Producto #1" data-num="1" data-ubi="Carrusel" class="homeadd">
+                </th>
+                <th>
+                    <input type="button" value="AddToCart Producto #2" data-num="2" data-ubi="Carrusel" class="homeadd">
+                </th> 
+                <th>
+                    <input type="button" value="AddToCart Producto #3" data-num="3" data-ubi="Carrusel" class="homeadd">
+                </th>
+                <th>
+                    <input type="button" value="AddToCart Producto #4" data-num="4" data-ubi="Carrusel" class="homeadd">
+                </th>
+            </tr>
+        </table>
+        
+
+    
+
+</body>
+
+</html>
