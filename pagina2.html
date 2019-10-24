@@ -27,10 +27,46 @@
 
     $(document).ready(function() {
     	    //Página Virtual
-    dataLayer.push({ 'event': 'virtualPage', 'pageUrl': 'prueba-iframe/paso2', 'pageName': 'Segun Pagina iframe' });
-    </script>
+    	dataLayer.push({ 'event': 'virtualPage', 'pageUrl': 'prueba-iframe/paso2', 'pageName': 'Segun Pagina iframe' });
+    	
+    	dataLayer.push(
+    		{'data':
+    			{      
+			        'event': 'promotionClick', 
+			        'ecommerce': {                                
+			            'promoClick': {                              
+			                'promotions': [{
+			                'id': '123Corchete',
+			                'name': 'Promo en iframe',
+			                'position': 'promo 1',
+			                'creative': 'www.Google.com'
+			                }]
+			            }
+			        }
+    			}
+    		}
+    	);
 
-});
+    	dataLayer.push(
+    		{'data':
+		    	{             
+			        'event': 'promotionImpression', 
+			        'ecommerce': {                                
+			            'promoView': {                              
+			                'promotions': [{
+			                'id': '123Corchete',
+			                'name': 'Promo en iframe',
+			                'position': 'promo 1',
+			                'creative': 'www.Google.com'
+			                }]
+			            }
+			        }
+		    	}
+		    }
+    	);
+
+	});
+	</script>
 
 </body>
 </html>
