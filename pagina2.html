@@ -33,7 +33,9 @@
     	dataLayer.push({ 'event': 'virtualPage', 'pageUrl': 'prueba-iframe/paso2', 'pageName': 'Segun Pagina iframe' });
     	
     	dataLayer.push(
-    		{'data':
+    		{
+    			'event': 'promotionClickIframe',
+    			'data':
     			{      
 			        'event': 'promotionClick', 
 			        'ecommerce': {                                
@@ -51,7 +53,9 @@
     	);
 
     	dataLayer.push(
-    		{'data':
+    		{
+    			'event': 'promotionImpressionIframe',
+    			'data':
 		    	{             
 			        'event': 'promotionImpression', 
 			        'ecommerce': {                                
