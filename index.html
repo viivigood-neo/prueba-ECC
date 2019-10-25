@@ -25,6 +25,15 @@
     </script>
 
     <script type="text/javascript">
+        var rdm = Math.floor(Math.random()*10);
+        if (rdm < 5) {
+                marca = "Esika";
+        } else {
+                marca = "Lbel";
+        }
+        dataLayer.push({
+           'property' : marca
+        });
         var Productos = ({
             'name': 'producto 1',
             'id': '453521',
