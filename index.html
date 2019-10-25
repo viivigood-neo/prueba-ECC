@@ -23,17 +23,22 @@
             });
         });
     </script>
-
-    <script type="text/javascript">
-        var rdm = Math.floor(Math.random()*10);
-        if (rdm < 5) {
-                marca = "Esika";
-        } else {
-                marca = "Lbel";
-        }
-        dataLayer.push({
-           'property' : marca
+    <script>
+        $( document ).ready(function() {
+            var rdm = Math.floor(Math.random()*10);
+            if (rdm < 5) {
+                    marca = "Esika";
+            } else {
+                    marca = "Lbel";
+            };
+            console.log(marca);
+            dataLayer.push({
+               'property' : marca
+            }); 
         });
+    </script>
+    <script type="text/javascript">
+        
         var Productos = ({
             'name': 'producto 1',
             'id': '453521',
