@@ -12,6 +12,7 @@
         })(window, document, 'script', 'dataLayer', 'GTM-MP7WT9P');</script>
     <!-- End Google Tag Manager -->
 	<title>Segunda Pagina iframe</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -26,11 +27,53 @@
     <script type="text/javascript">
 
     $(document).ready(function() {
-    	    //Página Virtual
-    dataLayer.push({ 'event': 'virtualPage', 'pageUrl': 'prueba-iframe/paso2', 'pageName': 'Segun Pagina iframe' });
-    </script>
 
-});
+    	console.log("READY");
+    	    //Página Virtual
+    	dataLayer.push({ 'event': 'virtualPage', 'pageUrl': 'prueba-iframe/paso2', 'pageName': 'Segun Pagina iframe' });
+    	
+    	dataLayer.push(
+    		{
+    			'event': 'promotionClickIframe',
+    			'data':
+    			{      
+			        'event': 'promotionClick', 
+			        'ecommerce': {                                
+			            'promoClick': {                              
+			                'promotions': [{
+			                'id': '123Corchete',
+			                'name': 'Promo en iframe',
+			                'position': 'promo 1',
+			                'creative': 'www.Google.com'
+			                }]
+			            }
+			        }
+    			}
+    		}
+    	);
+
+    	dataLayer.push(
+    		{
+    			'event': 'promotionImpressionIframe',
+    			'data':
+		    	{             
+			        'event': 'promotionImpression', 
+			        'ecommerce': {                                
+			            'promoView': {                              
+			                'promotions': [{
+			                'id': '123Corchete',
+			                'name': 'Promo en iframe',
+			                'position': 'promo 1',
+			                'creative': 'www.Google.com'
+			                }]
+			            }
+			        }
+		    	}
+		    }
+    	);
+
+	});
+	</script>
 
 </body>
 </html>
