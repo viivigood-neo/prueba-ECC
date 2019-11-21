@@ -358,6 +358,13 @@ $(document).ready(function() {
         console.log("*************************************");   
     });
 
+    //Home Link
+    $('.homeLink').click(function(event){
+        dataLayer.push({
+            'event': 'clickLinkEvent'
+        });
+    }
+
 
     //Prueba con corchete
     dataLayer.push({             
@@ -450,7 +457,7 @@ $(document).ready(function() {
             </tr>
             <tr>
                 <th colspan="4">
-                    <a href="pagina2.html">Segunda Página</a>
+                    <a href="pagina2.html" class="homeLink">Segunda Página</a>
                 </th>
             </tr>
             <tr>
