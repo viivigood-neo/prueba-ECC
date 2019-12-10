@@ -45,6 +45,27 @@
             });
         });
     </script>
+    <script type="text/javascript">
+
+        window.onload = function() {
+
+            console.log('Prueba');
+
+          var a = document.getElementById("LinkSegundaPagina");
+
+          a.onclick = function() {
+
+            dataLayer.push({
+               'event' : 'clickLinkEvent'
+            });
+
+            console.log('clickLinkEvent');
+
+
+            return false;
+          }
+        }
+    </script>
     <script>
         $( document ).ready(function() {
             function getParameterByName(name) {
@@ -358,12 +379,6 @@ $(document).ready(function() {
         console.log("*************************************");   
     });
 
-    //Home Link
-    $('.homeLink').click(function(event){
-        dataLayer.push({
-            'event': 'clickLinkEvent'
-        });
-    }
 
 
     //Prueba con corchete
@@ -403,6 +418,15 @@ $(document).ready(function() {
 
 
 }); 
+
+    //Home Link
+    function clickLink() {
+        dataLayer.push({
+            'event': 'clickLinkEvent'
+        });
+        console.log("Clic Link ");
+    }
+
 </script>    
 
 </head>
@@ -457,7 +481,7 @@ $(document).ready(function() {
             </tr>
             <tr>
                 <th colspan="4">
-                    <a href="pagina2.html" class="homeLink">Segunda Página</a>
+                    <a href="pagina2.html" id="LinkSegundaPagina" onclick="javascript:clickLink()">Segunda Página</a>
                 </th>
             </tr>
             <tr>
