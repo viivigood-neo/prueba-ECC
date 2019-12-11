@@ -22,11 +22,13 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <h2>Segunda página iframe</h2>
+    <h2>CUSTOM SEARCH</h2>
 
     <!-- when the form is submitted, either with submit button or ENTER key, call search() -->
-	<form onsubmit="return search()">
-	    <input type="text" id="query">
+	<form action="resultados.html" method="GET">
+	    <input type="text" id="query" name="q">
+	    <!-- <input type="button" id="buscar"  onclick="search()" value="BUSCAR"> -->
+	    <input type="submit" id="buscar" value="BUSCAR"> 
 	</form>
 	<!-- show the results in this DIV -->
 	<div id="results"></div>
@@ -35,7 +37,7 @@
 		const cx = '001939702519921710925:r3go7yk9ajo' // your search engine id 
 	    const apikey = 'AIzaSyAiFRoRDwhyZ1X1Ugn7oLeGCXju49W0ArY' // your api key
 
-	    var url = 'https://www.googleapis.com/customsearch/v1?key='+apikey+'&cx='+cx+'&q=solo+web';
+	    var url = 'https://www.googleapis.com/customsearch/v1?key='+apikey+'&cx='+cx+'&q=huawei';
 
 	    console.log(url);
 
@@ -58,16 +60,31 @@
 	</script>
 
 	<script>
+		var input = document.getElementById('query');
+		input.addEventListener("keyup", function(event) {
+		  // Number 13 is the "Enter" key on the keyboard
+		  if (event.keyCode === 13) {
+		    // Cancel the default action, if needed
+		    event.preventDefault();
+		    console.log('Enter');
+		    // Trigger the button element with a click
+		    //document.getElementById("buscar").click();
+		  }
+		}); 
+	</script>
+
+	<script>
 	function search() {
 
-		
+		console.log("viivi");
 	    const cx = '001939702519921710925:r3go7yk9ajo' // your search engine id 
 	    const apikey = 'AIzaSyAiFRoRDwhyZ1X1Ugn7oLeGCXju49W0ArY' // your api key
 
 	    /* select the input element */
+
 	    let input = document.getElementById('query')
 
-	    var url = 'HOLAhttps://www.googleapis.com/customsearch/v1?key='+apikey+'&cx='+cx+'&q='+input.value;
+	    var url = 'https://www.googleapis.com/customsearch/v1?key='+apikey+'&cx='+cx+'&q='+input.value;
 
 	    console.log(url);
 
@@ -99,10 +116,12 @@
 		  var data = JSON.parse(this.response)
 
 		  data.items.forEach(item => {
-			  console.log(item.title)
+			  //console.log(item.title);
+			  //console.log(item.link);
 	        	const link = document.createElement('a');
 	        	link.setAttribute('href',item.link);
-
+	        	link.innerHTML=item.title+"<br>";
+	        	console.log(link);
 	        	results.appendChild(link);
 		  })
 		}
